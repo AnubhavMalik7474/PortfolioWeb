@@ -1,0 +1,49 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark);
+  transition: opacity 0.6s var(--ease-out), visibility 0.6s var(--ease-out);
+}
+
+.leaving {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.spinner {
+  display: flex;
+  gap: 6px;
+  width: 70px;
+  justify-content: center;
+}
+
+.spinner span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.spinner span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.spinner span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,102 @@
+.button {
+  position: relative;
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: var(--white);
+  transition: background-color 0.6s ease, transform 0.6s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: var(--dark);
+  color: var(--primary);
+}
+
+.inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px dashed var(--white);
+  border-radius: 50%;
+  transition: border-color 0.5s ease;
+}
+
+.button:hover .inner::after {
+  border-color: var(--primary);
+}
+
+.ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-15deg);
+  transition: transform 0.5s ease;
+}
+
+.button:hover .ring {
+  animation: spin 12s linear infinite;
+}
+
+.ringText {
+  font-family: var(--font-body);
+  font-size: 8px;
+  letter-spacing: 1px;
+  fill: currentColor;
+  transition: fill 0.5s ease;
+}
+
+.button .ringText {
+  fill: var(--white);
+}
+
+.button:hover .ringText {
+  fill: var(--primary);
+}
+
+.slot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: 42%;
+  height: 42%;
+  transform: translate(-50%, -50%);
+}
+
+.slot svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.button:hover .slot svg {
+  transform: scale(1.1) rotate(45deg);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(-15deg);
+  }
+  to {
+    transform: rotate(345deg);
+  }
+}
+
+@media (max-width: 1024px) {
+  .button {
+    width: 160px;
+    height: 160px;
+  }
+}

@@ -1,0 +1,62 @@
+.intro {
+  padding: 60px 0 200px;
+}
+
+.container {
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.colImage {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.frame {
+  width: 100%;
+  max-width: 850px;
+  aspect-ratio: 850 / 752;
+  overflow: hidden;
+  /* Custom two-block shape built + animated in IntroShape.jsx (#intro-shape). */
+  -webkit-clip-path: url(#intro-shape);
+  clip-path: url(#intro-shape);
+}
+
+
+.frame > div {
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1366px) {
+  .intro {
+    padding: 60px 0 130px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .intro {
+    padding-bottom: 90px;
+  }
+}
+
+@media (max-width: 880px) {
+  .intro {
+    padding: 0 0 60px;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}

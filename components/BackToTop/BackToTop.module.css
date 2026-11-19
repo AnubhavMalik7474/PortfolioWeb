@@ -1,0 +1,64 @@
+.button {
+  position: relative;
+  flex-shrink: 0;
+  width: 76px;
+  height: 100px;
+  border-radius: 38px;
+  border: 1px solid var(--white);
+  transition: background-color 0.3s linear, border-color 0.3s linear;
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: var(--light);
+  border-color: transparent;
+}
+
+.button span {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 50%;
+  display: block;
+  width: 20px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+.button:hover span {
+  transform: translate(-50%, calc(-50% - 6px));
+}
+
+.button span::before,
+.button span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 15px;
+  height: 3px;
+  background-color: var(--white);
+  transition: background-color 0.3s linear;
+}
+
+.button span::before {
+  left: -3px;
+  border-radius: 5px 0 0 5px;
+  transform: rotate(-45deg);
+}
+
+.button span::after {
+  left: 6px;
+  border-radius: 0 5px 5px 0;
+  transform: rotate(45deg);
+}
+
+.button:hover span::before,
+.button:hover span::after {
+  background-color: var(--dark);
+}
+
+@media (max-width: 767px) {
+  .button {
+    width: 66px;
+    height: 90px;
+  }
+}

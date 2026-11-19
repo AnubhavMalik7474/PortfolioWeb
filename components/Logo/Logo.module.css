@@ -1,0 +1,43 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+  line-height: 1;
+}
+
+.mark {
+  width: 30px;
+  height: 30px;
+  overflow: visible;
+}
+
+.mark rect {
+  transition: transform 0.6s var(--ease-out);
+}
+
+/* Hover: the two blocks slide toward each other and "lock" into one shape. */
+.logo:hover .mark rect:first-child {
+  transform: translate(5px, 4px);
+}
+
+.logo:hover .mark rect:last-child {
+  transform: translate(-5px, -4px);
+}
+
+.word {
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: 22px;
+  letter-spacing: 0.06em;
+}
+
+.lg .mark {
+  width: 44px;
+  height: 44px;
+}
+
+.lg .word {
+  font-size: 32px;
+}

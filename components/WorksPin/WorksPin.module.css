@@ -1,0 +1,151 @@
+.works {
+  position: relative;
+}
+
+.container {
+  max-width: 1800px;
+  margin: 200px auto;
+  padding: 0 var(--gutter);
+}
+
+.list {
+  width: calc(100% - 100px);
+  margin: 0 auto;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 65vh;
+  min-height: 380px;
+  border-radius: 80px;
+  overflow: hidden;
+  will-change: transform, filter;
+  background-color: var(--darker);
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+}
+
+.media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Darker on the left where the title sits, so white text stays readable on light project shots. */
+  background: linear-gradient(90deg, rgba(18, 18, 20, 0.88) 0%, rgba(18, 18, 20, 0.62) 45%, rgba(18, 18, 20, 0.25) 100%);
+  opacity: 1;
+  border-radius: inherit;
+  transition: opacity 0.35s linear;
+}
+
+.item:hover .media::after {
+  opacity: 0.75;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 1.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.item:hover .image {
+  transform: scale(1.04);
+}
+
+.caption {
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  margin: auto 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.category {
+  color: var(--light);
+  font-size: 16px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+  --fill: 1;
+  font-weight: var(--display-weight);
+  font-size: clamp(40px, 7.8vw, 150px);
+  line-height: 1.29;
+  letter-spacing: -0.015em;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, calc(1 - var(--fill)));
+  -webkit-text-fill-color: rgba(255, 255, 255, var(--fill));
+  color: var(--white);
+  /* Keeps the title legible on very light project shots. */
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
+}
+
+@property --fill {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+
+@media (max-width: 1366px) {
+  .container {
+    margin: 130px auto;
+  }
+
+  .list {
+    width: calc(100% - 60px);
+  }
+
+  .item {
+    border-radius: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    margin: 90px auto;
+  }
+
+  .list {
+    width: 100%;
+  }
+
+  .item {
+    border-radius: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    margin: 60px auto;
+  }
+
+  .list {
+    display: grid;
+    gap: 24px;
+  }
+
+  .item {
+    height: 56vh;
+    min-height: 320px;
+    border-radius: 32px;
+  }
+}
+
+/* Whole card links to the project on Dribbble (sits above image + caption). */
+.cardLink {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+}
+
+.cardLink:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: -6px;
+}

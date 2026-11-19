@@ -1,0 +1,154 @@
+:root {
+  --primary: #16a34a;
+  --primary-rgb: 22, 163, 74;
+  --dark: #1e2024;
+  --darker: #181818;
+  --light: #e9ecf2;
+  --grey: #d7dbdf;
+  --white: #ffffff;
+  --ease-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --container: 1290px;
+  --gutter: 15px;
+  --font-body: 'Roboto Flex', system-ui, sans-serif;
+  --font-display: var(--font-archivo), 'Archivo', sans-serif;
+  --display-weight: 600;
+  --display-stretch: 112%;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+body {
+  margin: 0;
+  background-color: var(--dark);
+  color: var(--light);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.66667;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-stretch: var(--display-stretch);
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100000;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-200%);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/*
+ * Note: animations intentionally keep running even when the OS "reduce motion" setting is on
+ * (see RESPECT_REDUCED_MOTION in lib/gsap.js). To respect it again, restore:
+ *
+ * @media (prefers-reduced-motion: reduce) {
+ *   *, *::before, *::after {
+ *     animation-duration: 0.01ms !important;
+ *     animation-iteration-count: 1 !important;
+ *     transition-duration: 0.01ms !important;
+ *     scroll-behavior: auto !important;
+ *   }
+ * }
+ */
